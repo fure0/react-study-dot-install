@@ -13,27 +13,45 @@
   <script type="text/babel">
     (() => {
 
-      // function Counter() {
-      //   return <div>0</div>;
-      // }
       function Counter(props) {
-        return <div>0 {props.color}</div>;
+
+        // function countUp() {
+        //   alert('count up!');
+        // }
+        // function countUp(color) {
+        //   alert(color);
+        // }
+        function countUp(e, color) {
+          e.preventDefault();
+          alert(color);
+        }
+
+        // return (
+        //   <li style={{backgroundColor:props.color}} onClick={countUp}>
+        //     0
+        //   </li>
+        // );
+        // return (
+        //   <li style={{backgroundColor:props.color}} onClick={() => countUp(props.color)}>
+        //     0
+        //   </li>
+        // );
+        return (
+          <li style={{backgroundColor:props.color}}>
+            <a href="#" onClick={e => countUp(e, props.color)}>
+              0
+            </a>
+          </li>
+        );
       }
-      // function Counter(props) {
-      //   props.color = 'red';
-      //   return <div>0 {props.color}</div>;
-      // }
 
       ReactDOM.render(
-        // <div>
-        //   <Counter/>
-        //   <Counter/>
-        //   <Counter/>
-        // </div>,
-        <div>
-          <Counter color="tomato"/>
-          <Counter color="skyblue"/>
-          <Counter color="limegreen"/>
+        <div className="container">
+          <ul>
+            <Counter color="tomato"/>
+            <Counter color="skyblue"/>
+            <Counter color="limegreen"/>
+          </ul>
         </div>,
         document.getElementById('root')
       );
